@@ -1,7 +1,13 @@
+"""
+Default routes
+"""
 from flask import Blueprint
 
-main_page = Blueprint('main_page', __name__)
+MAIN_PAGE = Blueprint('main_page', __name__)
 
-@main_page.route('/')
+@MAIN_PAGE.route('/')
 def index():
+    """
+    At route '/' we are currently only returning "Hello World"
+    """
     return "Hello World"
