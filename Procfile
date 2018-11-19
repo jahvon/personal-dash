@@ -1,2 +1,2 @@
 web: gunicorn dash:app
-release: python manage.py db upgrade
+release: make heroku/release
