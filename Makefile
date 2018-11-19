@@ -29,8 +29,6 @@ db/create/user:
 db/seed:
 	python seed.py
 
-heroku/release: pip/update flask/db
-
 flask/run:
 	flask run --host=0.0.0.0 --cert cert.pem --key key.pem
 

@@ -14,5 +14,5 @@ Vagrant.configure(2) do |config|
   end
 
   # Provision python development environment
-  config.vm.provision :shell, :path => "bootstrap.sh"
+  config.vm.provision :shell, :path => "local-bootstrap.sh"
 end
