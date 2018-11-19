@@ -1,2 +1,2 @@
 web: gunicorn dash:app
-release: ./heroku-bootstrap.sh
+release: chmod u+x heroku-bootstrap.sh && ./heroku-bootstrap.sh
