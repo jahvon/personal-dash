@@ -1,0 +1,26 @@
+{% extends "splash_layout.html" %}
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/splash_style.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-1">DASH</h1>
+        <p class="lead">Where everything you need comes together</p>
+        <hr class="my-4">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="alert alert-info" role="alert">
+                {% for message in messages %}
+                <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+        {% endwith %}
+        <a href="{{auth_url}}" class="btn-lg btn-social btn-google">
+            <span class="fab fa-google"></span> Sign in with Google
+        </a>
+    </div>
+</div>
+{% endblock %}

@@ -1,1 +1,2 @@
-web: python run.py
+web: gunicorn dash:app
+release: python manage.py db upgrade

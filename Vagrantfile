@@ -3,29 +3,16 @@
 
 Vagrant.configure(2) do |config|
   config.vm.box = "ubuntu/trusty64"
+  config.ssh.insert_key = false
 
   # Flask
-  config.vm.network "forwarded_port", guest: 8000, host: 8000
+  config.vm.network "forwarded_port", guest: 5000, host: 5000
 
   config.vm.provider "virtualbox" do |vb|
     vb.memory = "2048"
+    vb.customize [ "modifyvm", :id, "--uartmode1", "disconnected" ]
   end
 
   # Provision python development environment
-  config.vm.provision "shell", inline: <<-SHELL
-    export HOME=/home/vagrant
-    sudo apt-get update
-    sudo apt-get install -yq \
-      ntp \
-      git \
-      python-dev \
-      python-virtualenv \
-      postgresql \
-      libpq-dev
-    su vagrant -c 'cd /vagrant &&
-                   make venv/setup &&
-                   source venv/bin/activate &&
-                   make pip/update &&
-                   make db/create'
-  SHELL
+  config.vm.provision :shell, :path => "bootstrap.sh"
 end
