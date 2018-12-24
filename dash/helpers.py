@@ -26,3 +26,12 @@ class Google:
     def get_google_user_info(token):
         google = Google.get_google_auth(token=token)
         return google.get(app.config['USER_INFO'])
+
+class Admin:
+    ADMIN_LIST = [
+        'jahvondockery@gmail.com'
+    ]
+
+    @staticmethod
+    def is_admin(email):
+        return email in ADMIN_LIST

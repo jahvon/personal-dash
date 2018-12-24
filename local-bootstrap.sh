@@ -1,6 +1,6 @@
 sudo apt-get update
 sudo apt-get install -yq postgresql libpq-dev libffi-dev \
-     python3-pip python3.4-venv npm jq
+     python3-pip python3.4-venv jq
 
 su vagrant -c 'cd /vagrant &&
     make env/variables &&

@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 
 from dash import app
+from dash.helpers import Admin
 from flask_login import UserMixin
 from flask_sqlalchemy import SQLAlchemy
 
@@ -40,3 +41,30 @@ class User(db.Model):
     @property
     def is_anonymous(self):
         return not self.is_authenticated
+    
+    @property
+    def is_admin(self):
+        return Admin.is_admin(self.email)
+
+# class FInancialTransaction(db.Model):
+#     __tablename__ = 'financial_transaction'
+
+#     id = db.Column(db.Integer, primary_key=True)
+#     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+#     amount = db.Column(db.Float, nullable=False)
+#     threshold = db.Column(db.Float, nullable=False)
+
+# class SavingGoal(db.Model):
+#     __tablename__ = 'saving_goals'
+
+#     id = db.Column(db.Integer, primary_key=True)
+#     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+#     amount = db.Column(db.Float, nullable=False)
+#     threshold = db.Column(db.Float, nullable=False)
+
+# class Budget(db.Model):
+#     __tablename__ = 'saving_goals'
+
+#     id = db.Column(db.Integer, primary_key=True)
+#     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+#     amount = db.Column(db.Float, nullable=False)

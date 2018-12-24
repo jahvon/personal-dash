@@ -53,3 +53,5 @@ node_modules
 
 # Others
 .vscode/
+cert.pem
+key.pem
