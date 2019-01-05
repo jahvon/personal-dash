@@ -10,30 +10,29 @@ class Config(object):
     SQLALCHEMY_DATABASE_URI = os.environ["DATABASE_URL"]
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     # Google OAuth Configs
-    CLIENT_ID = os.environ["CLIENT_ID"].strip().strip("\"")
-    CLIENT_SECRET = os.environ["CLIENT_SECRET"]
-    AUTH_URI = "https://accounts.google.com/o/oauth2/auth"
-    TOKEN_URI = "https://accounts.google.com/o/oauth2/token"
-    USER_INFO = "https://www.googleapis.com/userinfo/v2/me"
-    SCOPE = ["profile", "email"]
+    GOOGLE_AUTH_URI = "https://accounts.google.com/o/oauth2/auth"
+    GOOGLE_TOKEN_URI = "https://accounts.google.com/o/oauth2/token"
+    GOOGLE_USER_INFO = "https://www.googleapis.com/userinfo/v2/me"
+    GOOGLE_SCOPE = ["profile", "email"]
 
 class ProductionConfig(Config):
     DEBUG = False
-    # OAuth Authorization
-    REDIRECT_URI = "https://dash.jahvon.me/auth/gCallback"
+    # Google OAuth Authorization
+    GOOGLE_CLIENT_ID = os.environ["GOOGLE_CLIENT_ID"]
+    GOOGLE_CLIENT_SECRET = os.environ["GOOGLE_CLIENT_SECRET"]
+    GOOGLE_REDIRECT_URI = "https://dash.jahvon.me/auth/gCallback"
 
-class SandboxConfig(Config):
+class StagingConfig(Config):
     DEVELOPMENT = True
     DEBUG = True
-    # OAuth Authorization
-    REDIRECT_URI = "https://dash-sandbox.jahvon.me/auth/gCallback"
+    # Google OAuth Authorization
+    GOOGLE_CLIENT_ID = os.environ["GOOGLE_CLIENT_ID"]
+    GOOGLE_CLIENT_SECRET = os.environ["GOOGLE_CLIENT_SECRET"]
+    GOOGLE_REDIRECT_URI = "https://dash-sandbox.jahvon.me/auth/gCallback"
 
 class DevelopmentConfig(Config):
     DEVELOPMENT = True
     DEBUG = True
-    # OAuth Authorization
-    CLIENT_ID = os.environ["CLIENT_ID"].strip().strip("\"") # Something weird going on with local env
-    REDIRECT_URI = "https://localhost:5000/auth/gCallback"
 
 class TestingConfig(Config):
     TESTING = True

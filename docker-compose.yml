@@ -1,0 +1,30 @@
+version: "3.6"
+
+services:
+  development_default: &DEVELOPMENT_DEFAULT
+    build:
+      context: .
+      target: development
+    working_dir: /app
+    volumes:
+      - .:/app
+    environment:
+      - FLASK_APP=manage.py
+      - FLASK_ENV=development
+      - SECRET_KEY=secretssecretsarenofun1
+      - DATABASE_URL=postgresql://jahvon:jahvon@localhost/personaldash
+      - APP_SETTINGS=config.DevelopmentConfig
+
+  web:
+    <<: *DEVELOPMENT_DEFAULT
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    command: flask run --host=0.0.0.0
+
+  db:
+    image: postgres:10.6
+    environment:
+      - POSTGRES_USER=jahvon
+      - POSTGRES_PASSWORD=jahvon
