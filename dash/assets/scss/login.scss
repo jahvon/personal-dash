@@ -1,0 +1,20 @@
+body {
+ background-image: url("../img/login_bg.png");
+}
+
+#form-block {
+  background-color: #FFF;
+  padding: 10px;
+
+  .wb {
+    text-align: center;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: bold;
+    color: #4D445F;
+  }
+
+  .form-group {
+    margin: 20px 0px 20px 0px;
+  }
+}

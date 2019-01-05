@@ -1,0 +1,25 @@
+$primary-color: #4D445F;
+$secondary-color: #7D807E;
+$light-primary-color: #A49AA0;
+$blank-color: #F9F8F1;
+$highlight: #785C46;
+
+.navbar {
+    margin-bottom: 50px;
+    height: 40px;
+    padding: 10px 5px 5px 10px;
+    background-color: $primary-color;
+}
+
+.footer {
+    position: fixed;
+    height: 32px;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: #fff;
+    font-size: 12px;
+    text-align: center;
+}
+
+@import "bootstrap_overwrite";

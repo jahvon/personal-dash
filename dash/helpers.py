@@ -35,3 +35,8 @@ class Admin:
     @staticmethod
     def is_admin(email):
         return email in ADMIN_LIST
+
+class Env:
+    @staticmethod
+    def is_development():
+        return app.config["DEVELOPMENT"] == True

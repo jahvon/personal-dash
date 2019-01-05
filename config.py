@@ -23,7 +23,6 @@ class ProductionConfig(Config):
     GOOGLE_REDIRECT_URI = "https://dash.jahvon.me/auth/gCallback"
 
 class StagingConfig(Config):
-    DEVELOPMENT = True
     DEBUG = True
     # Google OAuth Authorization
     GOOGLE_CLIENT_ID = os.environ["GOOGLE_CLIENT_ID"]

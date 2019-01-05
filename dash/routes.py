@@ -3,7 +3,7 @@ import json
 from requests.exceptions import HTTPError
 
 from dash.forms import LoginForm
-from dash.helpers import Google
+from dash.helpers import Google, Env
 from dash.models import User, db
 from flask import (Blueprint, Response, abort, redirect, render_template,
                    request, session, url_for, flash)
@@ -17,6 +17,8 @@ auth = Blueprint('auth', __name__, template_folder='templates')
 def login():
     if current_user.is_authenticated:
         return redirect(url_for('base.index'))
+    elif Env.is_development:
+        return render_template('pages/login.html', dev=True)
     auth_url, state = Google.get_google_auth_url()
     session['oauth_state'] = state
     return render_template('pages/login.html', auth_url=auth_url)

@@ -1,1 +1,24 @@
+.navbar {
+  margin-bottom: 50px;
+  height: 40px;
+  padding: 10px 5px 5px 10px;
+  background-color: #4D445F; }
 
+  .footer {
+    position: fixed;
+    height: 32px;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: #fff;
+    font-size: 12px;
+    text-align: center; }
+
+    .btn-primary {
+      background: #4D445F;
+      border: 0px;
+      box-shadow: none;
+      color: #ffffff; }
+      .btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active,
+      .btn-primary.active {
+        background: #A49AA0; }

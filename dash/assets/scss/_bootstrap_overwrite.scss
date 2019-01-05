@@ -1,0 +1,11 @@
+// Overwrite Bootstrap classes
+.btn-primary {
+  background: #4D445F;
+  border: 0px;
+  box-shadow: none;
+  color: #ffffff;
+ 
+  &:hover, &:focus, &.focus, &:active, &.active{
+    background: #A49AA0;
+  }
+}
