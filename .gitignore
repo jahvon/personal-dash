@@ -55,3 +55,4 @@ node_modules
 .vscode/
 cert.pem
 key.pem
+.DS_Store
