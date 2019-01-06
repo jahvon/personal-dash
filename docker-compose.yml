@@ -18,7 +18,7 @@ services:
       - "5000:5000"
     depends_on:
       - db
-    command: ./build/load_db.sh flask run --host=0.0.0.0
+    command: ./scripts/load_db.sh flask run --host=0.0.0.0
 
   worker:
     <<: *DEVELOPMENT_DEFAULT
