@@ -9,11 +9,6 @@ services:
     volumes:
       - .:/app
     environment:
-      - FLASK_APP=manage.py
-      - FLASK_ENV=development
-      - SECRET_KEY=secretssecretsarenofun1
-      - DATABASE_URL=postgresql://jahvon:jahvon@localhost/personaldash
-      - APP_SETTINGS=config.DevelopmentConfig
       - GOOGLE_CLIENT_ID=none
       - GOOGLE_CLIENT_SECRET=none
 
@@ -23,10 +18,15 @@ services:
       - "5000:5000"
     depends_on:
       - db
-    command: flask run --host=0.0.0.0
+    command: ./build/load_db.sh flask run --host=0.0.0.0
+
+  worker:
+    <<: *DEVELOPMENT_DEFAULT
+    depends_on:
+      - db
 
   db:
-    image: postgres:10.6
+    image: postgres:10.3
     environment:
       - POSTGRES_USER=jahvon
       - POSTGRES_PASSWORD=jahvon

@@ -18,16 +18,6 @@
 		<div id="header">
 			{% include 'partials/header.html' %}
 		</div>
-		{% with messages = get_flashed_messages() %}
-		{% if messages %}
-		<div class="notification is-primary">
-			<button class="delete"></button>
-			{% for message in messages %}
-			<p>{{ message }}</p>
-			{% endfor %}
-		</div>
-		{% endif %}
-		{% endwith %}
 		
 		{% block content %}{% endblock %}
 

@@ -9,6 +9,20 @@ $highlight: #785C46;
     height: 40px;
     padding: 10px 5px 5px 10px;
     background-color: $primary-color;
+
+    .navbar-nav {
+        margin-top: -5px;
+        font-size: 15px;
+        line-height: 15px;
+    }
+
+    .search-box {
+        height: 25px;
+        margin-top: -5px;
+        font-size: 12px;
+        width: 200px;
+        color: #7D807E;
+    }
 }
 
 .footer {

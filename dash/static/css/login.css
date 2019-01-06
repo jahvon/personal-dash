@@ -12,3 +12,9 @@ body {
       color: #4D445F; }
       #form-block .form-group {
         margin: 20px 0px 20px 0px; }
+        #form-block .alert {
+          font-size: 12px;
+          height: 22px;
+          padding: 5px;
+          text-align: center;
+          line-height: 12px; }

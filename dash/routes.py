@@ -17,11 +17,24 @@ auth = Blueprint('auth', __name__, template_folder='templates')
 def login():
     if current_user.is_authenticated:
         return redirect(url_for('base.index'))
-    elif Env.is_development:
+    elif request.method == "POST":
+        username = request.form['username']
+        password = request.form['password']
+        check_user = User.query.filter_by(username=username).first()
+        if check_user is not None and check_user.check_password(password):
+            check_user.login()
+            db.session.commit()
+            login_user(check_user)
+            return redirect(url_for('base.index'))
+        else:
+            flash('Invalid username or password')
+    
+    if Env.is_development:
         return render_template('pages/login.html', dev=True)
-    auth_url, state = Google.get_google_auth_url()
-    session['oauth_state'] = state
-    return render_template('pages/login.html', auth_url=auth_url)
+    else:
+        auth_url, state = Google.get_google_auth_url()
+        session['oauth_state'] = state
+        return render_template('pages/login.html', auth_url=auth_url)
 
 @auth.route('/gCallback')
 def callback():
